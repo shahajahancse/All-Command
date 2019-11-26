@@ -1,0 +1,134 @@
+# command start
+
+- php artisan migrate:refresh  to clear database
+- php artisan make:exception ProductNotBelongeToUser  , to create exception 
+- @method('PUT')  , to used form when update data
+
+# Form: [
+- go to validation -  Writing The Validation Logic  option
+- Manually Creating Validators option select
+- File Storage = Specifying A File Name   $path = $request->file('avatar')->storeAs('avatars', $request->user()->id);
+
+]
+
+# Route: [
+- Route::get('/contact-us', 'FontController@contact')->name('contact'); and url route name same {{ route('contact') }} /ex:  <a href="{{ route('contact') }}">contact</a>
+- Route::get('/contact-us', 'FontController@contact')->name('contact'); 
+
+- Route::name('admin.')->middleware('auth:api')->group(function(){     , to group, middleware and name 
+           - Route::get('/contact-us', 'FontController@contact')->name('contact');
+	   - Route::get('/about', 'FontController@about')->name('about');
+	})
+
+- Route::redirect('/here', '/there'); to redirect
+]
+
+# Model: [
+- php artisan help make:model ,   to check model comand
+- php artisan make:model Model/Product -a ,   to Generate a migration, factory, and resource controller for the model
+- then open api.php and create resourse route
+- php artisan r:l , to ckeck route list  
+- php artisan migrate , to database table create
+- type the 'factory(App\model_name::class, 100(amount))->create()' then run "php artisan db:seed" to crerate facker data. 
+    Or " php artisan ti, then type factory(App\Customer::class, 100)->create() "
+- php artisan tin ,  and then  - App\Model\Product::find(4) ,  to check  fack data in database
+- App\Model\Product::find(4)->reviews(relational table data) , to check relational data
+ 
+]
+
+# Resource: [
+- php artisan make:resource Product/ProductCollection , to create Product Collection
+- php artisan make:resource Product/ProductResource , to create Product Resource
+- php artisan make:resource Product/ReviewResource , to create Review Resource
+
+]
+
+# Request: [
+- php artisan make:request ProductRequest , create request  to Product
+
+]
+
+#API Authentication (Passport)
+[
+- composer require laravel/passport , to install passport packege
+- php artisan migrate , then migrate
+- php artisan passport:install , then install 
+ then edit App\User model  ' use Laravel\Passport\HasApiTokens; ' and ' use HasApiTokens ' after blew User class
+ and then edit AuthServiceProvider model  ' use Laravel\Passport\Passport; ' and ' Passport::routes(); ' method within the boot method 
+- composer require laravel/ui --dev , and   php artisan ui vue --auth , to create user authentication
+]
+
+#Postman to Authentication :
+[
+- http://127.0.0.1:8000/oauth/token (POST Request) modify to :
+    Headers => { Accept =  application/json    and   Content-Type = application/json }, then select body and row then type:
+    {	"grant_type" : "password",
+	"client_id" : "2",   `oauth_clients`
+	"client_secret" : "nCdsgwmrwVDwfoQkZR0gIDL88OPKqlyH6qJmyL8v",  from `oauth_clients`
+	"username" : "sojib@gmail.con",  from `users` table
+	"password" : "12345678"  from `users` table
+    }, then send to jwt token , and copy the token and create new request :
+
+- http://127.0.0.1:8000/api/user  (GET Request) modify to :
+    Headers => { Accept =  application/json , Content-Type = application/json  and Authorization = check screenshot https://prnt.sc/puy4f4 }, 
+    then send request to view user info  here check =>  https://prnt.sc/puy55a
+
+- http://127.0.0.1:8000/api/products  (POST Request) authentication to :
+    Headers => { Accept = application/json and  Content-Type = application/json and Authorization = check screenshot https://prnt.sc/puy4f4 },
+    then select body and row then type:
+    {	"name" : " ",
+	"details" : " " ,
+	"price" : " " ,
+	"stock" : " " ,
+	"discount" : " "
+    }
+   and edit ProductController and Requests\productRequest   to authenticate and insert data
+	and same to update
+]
+
+
+
+End command
+
+Laravel/Lumen => ["          (folder)
+	App Folder => ["
+		Console/Commands = your commands, to costomize,
+		Events		 = create specific  event,
+		Exceptions	 = type here Exceptions,
+		Http/Controllers = create controller,
+		Http/Middleware  = define specific ligic here (like a list of number set to check specific number),
+		Jobs (Lumen)     = here define jobs relative logic,
+		Providers        = here laravel provide all service, but needed remove or added any service
+		Listeners	 = define listener to specific event, when create event "],
+
+	Bootstrap = Here we will load the environment and create the application instance,
+
+	Database => ["
+		factories       = generate new model instances for testing / seeding your application's database,
+		migrations      = here disign databse table,
+		seeds		= here create fake data to need "],
+
+	public   => this folder is root folder to application,
+	resources=> this folder is used to views resource,
+	route    => define routes,
+	storage  => ["  (use to when needed external or internal info to storage)
+		App		= public folder info storage,
+		framework	= sessions, cache,testing,views,
+		logs		= errors save"],
+
+	tests    = write the test to application,
+	vendor   = here composer load dependency package
+"]
+
+file	=> ["
+		.env = here configaration commons filse,
+		composer.json = vender package and another version maintenance
+
+<--    end   -->
+
+
+
+ 
+
+
+

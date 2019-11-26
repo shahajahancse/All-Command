@@ -1,0 +1,69 @@
+    
+	<==  START Command ==>
+
+# " git init " to generate empty Git repository 
+# " git config --global user.name "user_name" " and " git config user.name "user_name" " to per project name
+# " git config --global user.email "email" " and " git config user.email "email" " to per project email
+# " git config --list " to check user name and email
+# " git status " to check project status
+
+# " git add file/folder name " to stage  
+# " git add --all / git add . "  to stage all
+# " git commit " to comment and type " i " from keyboard to insert data
+#   then type " Esc " button from keyboard to end insert data and type " :x " to save file
+#   Or shortcut " git commit -m 'here type commit...' "
+# " git log " to check all commit
+# " git log --oneline " to check commit by the shortcut way
+
+# " git checkout type_id_number " to back previous situation
+# " git checkout master " to back Previous HEAD position 
+# " git diff " to check new latest change from last stage change.
+# " git show type_id_number " to check specific stage
+# " git diff here type_id_number type_id_number " to check specific stage to another specific stage 
+# " git diff --staged " to check stage area
+
+# " git rm type_file_name/folder_name " to removed file/folder  
+#   AND type " git reset HEAD type_file_name/folder_name " to permanently delete
+
+# " create repository and push source code
+# " Generate SSH Key: first go to Credential Manager and open Windows Credentials and remove github
+# " ssh-keygen -t rsa -b 4096 -C "here your email" then enter press
+# " Enter file in which to save the key (/c/Users/Shahajahan/.ssh/id_rsa):[ Only Press enter ], do not set any name."
+# " Enter passphrase (empty for no passphrase): here type password "
+# " ls -al ~/.ssh " to checkout Before you generate an SSH key,
+# " eval $(ssh-agent -s) " to generate Agent pid id
+# " ssh-add ~/.ssh/id_rsa " to Identity
+# " clip <~/.ssh/id_rsa.pub " to copy key
+
+# " git remote add origin git@github.com:Shahajahan15/Git-Config-Command.git " from coppy Git Config Command Repository
+# " git push -u origin master " to push project
+# " git clone type_repository_link " to download project
+# " git fetch " to acknowledge the change 
+# " git pull " to receive change  
+
+# " git branch type_branch _name " to create branch
+# " git branch " to check branch number of ammount 
+# " git checkout type_branch _name " to Switched another branch
+# " git checkout -b larave-branch " create larave-branch with Switched larave-branch 
+# " git merge type_branch_name " to merge another branch
+# " git branch -d larave-branch " to delete branch
+
+# " git stash " to save file in tempory folder/file
+# " git stash pop/apply " to show tempory folder/file
+# " git stash list " to check stash file
+# " git stash pop stash@{2} ( here stash@{0} == serial number )  " to number of stash file show
+# " git clean -f -n " to check unstage file
+# " git clean -f " to deleted unstage/untrack file
+# "  touch .gitignore(type_file_name) " to create new file
+
+
+   <==  END Command ==>
+
+	git remote rm origin
+	git remote add origin git@github.com:username/myapp.git
+
+
+
+
+
+

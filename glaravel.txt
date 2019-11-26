@@ -1,0 +1,32 @@
+
+#  "php artisan preset none" to clear bootstrp, sass etc
+#  "php artisan serve --port=8080" customize port
+#  "php artisan down --message="Upgrading Database" --retry=60 " to Maintenance Mode
+#  "php artisan down --allow=127.0.0.1 --allow=192.168.0.0/16" to maintenance mode, specific IP addresses or networks 
+
+#  "php artisan make:model ControllerName -mcr"  // create model, migrate, controller file.
+#  "php artisan cache:clear" to old cache clear
+#  "php artisan migrate:install" to create only migration file.
+#  "php artisan migrate" to create only migration file and others file migrate
+#  "php artisan migrate:fresh" to clear old migration & create new migration.
+#   type the 'factory(App\model_name::class, 100(amount))->create()' then run "php artisan db:seed" to crerate facker data. 
+    Or " php artisan ti, then type factory(App\Customer::class, 100)->create() " 
+#  "
+
+
+#  " php spark serve --port=8081 "  customize port on Codeigniter .
+#  " php spark serve --php=/usr/bin/php7.6.5.4 " a specific version of PHP to use on Codeigniter
+#  "
+#  "
+#  "
+#  "
+#  "
+#  "
+#  "
+#  "
+#  "
+#  "
+#  "
+#  "
+#  "
+#  "

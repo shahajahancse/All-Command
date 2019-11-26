@@ -1,0 +1,91 @@
+here Ecommerce Laravel Documentation ->
+
+But here first time (Command Prompt) 9 basic commands you should know (cd, dir, mkdir, etc.):
+1. How to change the directory (folder): (CD /) to go root directory Or (CD \directory location...) to change another directory
+2. How To access another drive: like to change the drive from "C:" to "F:", you should type "f:" and then press Enter.
+3. To view the contents of a directory: type "dir", and press Enter. 
+4. To create a new directory/folder: using the "MKDIR" or "MD" command. Example "MKDIR FolderName" or "MD FolderName".       
+   But if you wanted, to another location a create new folder: example  "mkdir d:\test_cmd" (mkdir location..\FolderName).
+5. create empty  file: "echo. 2>EmptyFile.txt" (echo. 2>fileName.extention). Or "fsutil file createnew test.txt 2000" (test.txt=filename & 2000=length)
+6. To rename files and folders: type "ren OldFolderName NewFolderName", example "ren test_cmd final_cmd". And same as to the files rename.
+7. How to copy files: type "copy location\filename.extension newlocation\newname.extension".
+8. delete file: "del fileName". AND delete folder to use RD (Remove Directory) "rd folderName" 
+9. help command " type the "help" and then press Enter.
+
+Start here -->
+
+#  Url: {{ url(here type link) }}. this "url" link use to form submit or navbar link
+#  Asset: {{ asset(here type link) }}. this "asset method" used css, js, Image to external link.
+#  "use App\Product;" model to show data in view page. "$products = Product::all()" all data assign in $products variable.
+#  "compact('products')" all data passing in view page to show data. But when use "compact" method not used $ in variable, just assign variable with out $.
+
+#  Soft Delete: add the line "use Illuminate\Database\Eloquent\SoftDeletes;",  add the line "use SoftDeletes;" at model in first line, 
+   & add the line "protected $dates = ['deleted_at'];" in below on Model.
+#  add the line at migration file "$table->softDeletes();" in below. and "migrate:rollback", then "migrate". soft delete done.
+#  Status: this command used to check database status.
+
+#  @extends @yield & @section: @extends method to used layouts page extended ex. "@extends('layouts.frontendapp')" //here layouts/frontendapp file to view page
+   AND  @yield method used in layouts page to no changable content(navbar, footer) & passing a name to receive section content ex.  "@yield('frontend_content')"
+   and @section method used to changable content and pass the name to mass contnet in @yield ex. "@section('frontend_content')" //here mass frontend_content name
+
+#  Show single product: Open productdetails method in FrontendController Controller.
+#  Product::find: here Product is class & find is method is a object in Product class. "Product::find($product_id)" & "$product_id" is argument passing.
+#  "$single_product_info = Product::find($product_id)" & "return view('frontend.productdetails', compact('single_product_info'))". // return info in view page
+
+#  Related products info: "$related_products = Product::all();" // all() method search all products & related_products passing with compact method
+#  'where()" method used to related_products "$related_products = Product::where('id', '!=', $product_id)->get();" // must be used get() when used where().
+#  STR_LIMIT(): method to used characters limit in paragraph. "str_limit($product-> product_description, 15)" // here 15 characters show.
+
+#  restore data: "Product::onlyTrashed()->where('id',$product_id)->restore()" // else withTrashed() = onlyTrashed() work.
+#  Permanent delete: "Product::onlyTrashed()->find($product_id)->forceDelete();" // only Soft Delete data will permanent delete by this line.
+
+#  add the line "enctype="multipart/form-data"" in form.
+#  Image Upload: first install "Intervention Image", type "composer require intervention/image". this is Third party software.
+#  add the line "Intervention\Image\ImageServiceProvider::class" at the 'providers' array on "config/app.php" file .
+#  & add the line "'Image' => Intervention\Image\Facades\Image::class" at the 'aliases' array on "config/app.php" file .
+#  & run the command " php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravel5" "  to genarete 'image.php' file in "config" folder. 
+
+#  insertGetId(): show insert id, "$last_inserted_id = Product::insertGetId()" // data insert & return id.
+#  hasFile() method used to check upload file. " if ($request->hasFile('product_image')){echo "ace";}else{echo "nai";}" // product_image this is upload file name
+#  getClientOriginalExtension() to check image extension. "$image_upload = $request->product_image; print_r($image_upload->getClientOriginalExtension())".
+#  "$save_file = base_path('/public/uploads/product_images/'.$file_name, 50);" set location to save file & too size.
+#  then finally done: "Image::make($image_upload)->resize(30, 20)->save($save_file);"  // make(), resize() & save() call to resize file & save file.
+
+#  Real & Default Image: first edit migrate file, then run command "php artisan migrate:rollback", then again "php artisan migrate". 
+#  "Product::find($last_inserted_id)->update(['product_image' => $file_name]);" // update database to save image, then model edit to update database.
+#  "<img src="{{ asset('uploads/product_images')}}/{{$product->product_image}}" alt="img" width="50">" to show image in dashboard.
+
+#  "echo Product::find($request->product_id)->product_image;" to check before set image or not set image.
+#  unlink() used to delete the file: "$file = Product::find($request->product_id)->product_image; unlink(base_path('public/uploads/product_images/'.$file));"
+
+#  "php artisan make:model ControllerName -mcr"  // create model, migrate, controller file.
+#  Unique validate: "$request->validate(['category_name'  => 'required|unique:categories,category_name']);"  //required|unique:tableName,columnName
+#  "Carbon::now('Asia/Dhaka'or edit config/app.php add 'Asia/Dhaka')" current time added in database. And "format('d-m-Y h:i:s a')" show time in view page. 
+#  "diffforhumans()" this method show difference for human readable like "4 minute ago". go to the main site => https://carbon.nesbot.com/docs/
+
+#   "@auth something else.... @endauth" used to authentication. 
+#   "{{ App\Category::find($product-> category_id)->category_name }}" check category name in category table from product table. Or
+    Create a function in Product Model " public function relationTocategory(){ return $this->hasOne('App\Category', 'id', 'category_id'); } 
+    And call the function from view page " {{ $product-> relationTocategory->category_name }} "  // one to one (foreign_key) relation
+
+#   "$menues = App\Category::all();"   used to assign all info.
+#   "$menues = App\Category::latest()->take(2)->get();"  used to assign last specific info. // here last 2 row data assigned.
+#  "$menues = App\Category::where('menu_status', true/1)->get();"  used to check data when menu_status==1, when show data. else not show data
+
+#   go to => https://mailtrap.io/  to fake mail sending. 
+#   Laravel - Sending Email: go to => https://www.tutorialspoint.com/laravel/laravel_sending_email.htm. 
+
+#  "Contact::insert($request->except('_token'));" , when table column name and form value name same when insert data this command.
+#  except('....') this method not save data in database. like this "except('_token')", here _token not save.
+
+Mail:
+#   first run "composer require guzzlehttp/guzzle". then run "php artisan make:mail ContactMessage"  //ContactMessage is mail class name
+#   then "use Mail" & "use App\Mail\ContactMessage" in FrontendController.
+#   "Mail::to('mdrezaali1@gmail.com')->send(new ContactMessage());"  // here mdrezaali1@gmail.com receive the mail .
+
+#  @php  error_reporting(0) @endphp  to no show error
+
+
+
+
+

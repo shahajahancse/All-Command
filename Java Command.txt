@@ -1,0 +1,13 @@
+
+	<=   Start here  =>
+
+# Java basic concept ' Project -> package -> 1 or more Java program '
+# " println() " print output with new line and " print() " only print output 
+# Escape sequence: " \b, \n, \r, \t, \", \', \\ " follow source code
+# JDK to use Java Program creation, AND JRE to use Java Program run.
+# 
+# 
+
+
+
+	<=  End the project  =>

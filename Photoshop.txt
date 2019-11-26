@@ -1,0 +1,42 @@
+#  document setup: document name, preset/type, width & height, resolution(300 to print & color mode cmyk) and resolution(72 to web/banar & color mode rgb)
+#  Zoom In & Out: Ctrl+Alt ++ / Ctrl+Alt -- And  Ctrl+space+right-click(or drug) / Ctrl+Alt+space+right-click(or drug) of mouse. & Zoom tool(Z)
+#  Screen Mode: f/F Or Open view option and select sreen mode option.
+#  Document pan: when need move any corner to another corner, when select hand Tool(or h) / space click and move any corner.
+#  Color Apply: foreground color-> Alt+Delete-key & background color-> Ctrl+Delete-key.
+#  Layer: f7 function click to show option / open window and select layer. And Ctrl+j to create new layer.
+
+#  selection Shift+Alt+drup and drop of mouse to select the specific option.
+#  Shift+select specific area to multiple area select waith different area.
+#  Ctrl+d to deselected
+#  select lasso tool select and drup to select area AND selection polygonal lasso tool Shift+select specific option and Ctrl+ click mouse left button to fixt 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

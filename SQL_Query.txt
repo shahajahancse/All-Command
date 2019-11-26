@@ -1,0 +1,127 @@
+
+	1. CREATE DATABASE atova_db
+	2. DROP DATABASE atova_db
+	3. CREATE TABLE Persons 
+	   ( PersonID int NOT null AUTO_INCREMENT, 
+	   LastName varchar(255), FirstName varchar(255), 
+	   Address varchar(255), City varchar(255), PRIMARY key (PersonID) )
+
+	4. #to change unicode version :
+	   ALTER DATABASE `atova_db` DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci
+
+	5. #to cerate table
+	   CREATE TABLE students (id INT(6) AUTO_INCREMENT PRIMARY KEY,
+	   name VARCHAR(30) NOT NULL,
+	   father_name VARCHAR(30) NOT NULL,
+	   mother_name VARCHAR(30),
+	   email VARCHAR(50) NOT NULL,
+	   password VARCHAR(60) NOT NULL,
+	   mobile VARCHAR(12),
+	   gender_id INT(1) NOT NULL,
+	   religion_id INT(1) NOT NULL,
+	   birth_date DATE NOT NULL,
+	   address VARCHAR(60))
+
+	6. SELECT * FROM students 
+	   ORDER BY Country DESC;
+
+	7. UPDATE students 
+	   SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+	   WHERE CustomerID = 1;
+
+	8. SQL FOREIGN KEY on CREATE TABLE
+	   CREATE TABLE Orders (
+    		OrderID int NOT NULL,
+    		OrderNumber int NOT NULL,
+    		PersonID int,
+    		PRIMARY KEY (OrderID),
+   		FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+	 );
+
+	9. INNER JOIN :
+	   SELECT Orders.OrderID, persons.FirstName FROM Orders INNER JOIN persons ON Orders.PersonID=persons.PersonID;
+	SELECT Orders.OrderID, persons.FirstName, orders.date FROM Orders INNER JOIN persons ON Orders.PersonID=persons.PersonID
+
+	10. LEFT JOIN:
+	    SELECT persons.FirstName, Orders.OrderID 
+	    FROM persons 
+	    LEFT JOIN Orders ON persons.PersonID = Orders.PersonID 
+	    ORDER BY persons.PersonID
+
+	11. FOREIGN KEY :
+	    ALTER TABLE orders ADD FOREIGN KEY (CustomersID) REFERENCES customers(CustomersID)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+function isPalindrome($word){
+  // Please write your code here.
+}
+$word = fgets(STDIN);
+echo isPalindrome($word) ? "true" : "false";
+?>
+
+A palindrome is a word that reads the same backward or forward.
+Write a function that checks if a given word is a palindrome. Character case should be ignored.
+function isPalindrome($word)
+For example, isPalindrome("Deleveled") should return true as character case should be ignored, resulting in "deleveled", which is a palindrome since it reads the same backward and forward.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
