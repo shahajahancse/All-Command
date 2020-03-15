@@ -9,7 +9,7 @@ But here first time (Command Prompt) 9 basic commands you should know (cd, dir, 
 5. create empty  file: "echo. 2>EmptyFile.txt" (echo. 2>fileName.extention). Or "fsutil file createnew test.txt 2000" (test.txt=filename & 2000=length)
 6. To rename files and folders: type "ren OldFolderName NewFolderName", example "ren test_cmd final_cmd". And same as to the files rename.
 7. How to copy files: type "copy location\filename.extension newlocation\newname.extension".
-8. delete file: "del fileName". AND delete folder to use RD (Remove Directory) "rd folderName" 
+8. delete file: "del fileName". AND delete folder to use RD (Remove Directory) "rd folderName" Or "Remove-Item -Recurse -Force folderName"  EX. "Remove-Item -Recurse -Force .\csecommerce\" .
 9. help command " type the "help" and then press Enter.
 
 Start here -->
